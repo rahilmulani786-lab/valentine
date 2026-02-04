@@ -86,7 +86,7 @@
       width: 8px;
       height: 8px;
       opacity: 0.9;
-      animation: fall 1.4s ease-out forwards;
+      animation: fall 1.3s ease-out forwards;
     }
 
     @keyframes fall {
@@ -95,7 +95,7 @@
         opacity: 1;
       }
       to {
-        transform: translateY(340px) rotate(360deg);
+        transform: translateY(330px) rotate(360deg);
         opacity: 0;
       }
     }
@@ -121,17 +121,11 @@
       <br><br>
       Valentine’s Day with me 🥰
     </p>
-
-    <!-- 💕 Lovey-dovey sound (plays only on click) -->
-    <audio id="loveSound" preload="auto">
-      <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_46b0d7d6b4.mp3?filename=romantic-piano-112191.mp3" type="audio/mpeg">
-    </audio>
   </div>
 
   <script>
     const noBtn = document.getElementById("noBtn");
     const card = document.querySelector(".card");
-    const loveSound = document.getElementById("loveSound");
 
     noBtn.addEventListener("mouseover", () => {
       const cardRect = card.getBoundingClientRect();
@@ -150,15 +144,13 @@
     function sayYes() {
       document.querySelector(".buttons").style.display = "none";
       document.getElementById("response").classList.remove("hidden");
-      loveSound.currentTime = 0;
-      loveSound.play();
       launchConfetti();
     }
 
     function launchConfetti() {
       const colors = ["#ff4d6d", "#ffd6e0", "#ff9aa2", "#ffc8dd"];
 
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 45; i++) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
 
@@ -168,7 +160,7 @@
           colors[Math.floor(Math.random() * colors.length)];
 
         card.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 1400);
+        setTimeout(() => confetti.remove(), 1300);
       }
     }
   </script>
