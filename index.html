@@ -22,11 +22,11 @@
     .card {
       background: white;
       padding: 40px;
-      border-radius: 20px;
+      border-radius: 24px;
       text-align: center;
-      max-width: 400px;
+      max-width: 420px;
       width: 90%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
       position: relative;
       overflow: hidden;
     }
@@ -34,28 +34,28 @@
     h1 {
       font-family: 'Pacifico', cursive;
       color: #ff4d6d;
-      font-size: 2.5rem;
-      margin-bottom: 15px;
+      font-size: 2.6rem;
+      margin-bottom: 18px;
     }
 
     p {
       color: #555;
-      font-size: 1.1rem;
-      line-height: 1.5;
+      font-size: 1.15rem;
+      line-height: 1.6;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 32px;
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 16px;
     }
 
     button {
       border: none;
-      padding: 12px 22px;
+      padding: 14px 26px;
       font-size: 1rem;
-      border-radius: 25px;
+      border-radius: 30px;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -66,7 +66,7 @@
     }
 
     .yes:hover {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
 
     .no {
@@ -85,7 +85,7 @@
       width: 8px;
       height: 8px;
       opacity: 0.9;
-      animation: fall 1.2s linear forwards;
+      animation: fall 1.3s ease-out forwards;
     }
 
     @keyframes fall {
@@ -94,7 +94,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateY(300px) rotate(360deg);
+        transform: translateY(320px) rotate(360deg);
         opacity: 0;
       }
     }
@@ -106,65 +106,3 @@
     <h1>Hey nia ❤️</h1>
 
     <p>
-      I was thinking…<br><br>
-      <strong>Will you be my Valentine nia?</strong> 💕
-    </p>
-
-    <div class="buttons">
-      <button class="yes" onclick="sayYes()">Yes 🥰</button>
-      <button class="no" id="noBtn">Let me think 🤔</button>
-    </div>
-
-    <p id="response" class="hidden" style="margin-top: 25px; font-size: 1.2rem;">
-      Yay!! 💖 It’s a date!  
-      <br><br>
-      Valentine’s Day with me 🥰
-    </p>
-  </div>
-
-  <script>
-    const noBtn = document.getElementById("noBtn");
-    const card = document.querySelector(".card");
-
-    noBtn.addEventListener("mouseover", () => {
-      const cardRect = card.getBoundingClientRect();
-      const btnRect = noBtn.getBoundingClientRect();
-
-      const maxX = cardRect.width - btnRect.width - 20;
-      const maxY = cardRect.height - btnRect.height - 20;
-
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
-
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
-    });
-
-    function sayYes() {
-      document.querySelector(".buttons").style.display = "none";
-      document.getElementById("response").classList.remove("hidden");
-      launchConfetti();
-    }
-
-    function launchConfetti() {
-      const colors = ["#ff4d6d", "#ffd6e0", "#ff9aa2", "#ffc8dd"];
-
-      for (let i = 0; i < 40; i++) {
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti");
-
-        confetti.style.left = Math.random() * card.offsetWidth + "px";
-        confetti.style.top = Math.random() * 20 + "px";
-        confetti.style.backgroundColor =
-          colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-        card.appendChild(confetti);
-
-        setTimeout(() => confetti.remove(), 1200);
-      }
-    }
-  </script>
-
-</body>
-</html>
